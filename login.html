@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank of America - Secure Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .logo {
+            text-align: center;
+        }
+        .logo img {
+            height: 160px;
+        }
+        .info-box {
+            background-color: #e8f0fe;
+            padding: 10px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            border-left: 5px solid #004080;
+        }
+        h2 {
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .login-btn {
+            background-color: #004080;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .login-btn:hover {
+            background-color: #003366;
+        }
+        .disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .links {
+            text-align: center;
+            font-size: 14px;
+        }
+        .links a {
+            text-decoration: none;
+            color: #004080;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function checkUserID() {
+            var userID = document.getElementById("user-id").value;
+            var passwordField = document.getElementById("password");
+            var loginBtn = document.getElementById("login-btn");
+            if (userID.length >= 6) {
+                passwordField.disabled = false;
+                loginBtn.classList.remove("disabled");
+            } else {
+                passwordField.disabled = true;
+                loginBtn.classList.add("disabled");
+            }
+        }
+
+        function login(event) {
+            event.preventDefault();
+            var userID = document.getElementById("user-id").value;
+            var password = document.getElementById("password").value;
+
+            if (userID === "lovedogs2920@" && password === "Ninja911Y@") {
+                alert("Login successful! Redirecting...");
+                window.location.href = "index.html";
+            } else {
+                alert("Incorrect User ID or Password. Please try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="info-box">
+            <p><strong>Bank of America deposit products:</strong> FDIC-Insured - Backed by the full faith and credit of the U.S. Government.</p>
+        </div>
+        <div class="logo">
+            <img src="images/db.png" alt="Bank of America Logo">
+        </div>
+        <h2>Log In to Online Banking</h2>
+        <form onsubmit="login(event)">
+            <div class="form-group">
+                <label for="user-id">User ID (At least 6 characters)</label>
+                <input type="text" id="user-id" name="user-id" onkeyup="checkUserID()">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" disabled>
+            </div>
+            <button type="submit" class="login-btn disabled" id="login-btn">Log In</button>
+        </form>
+        <div class="links">
+            <p><a href="#">Forgot your Password?</a></p>
+            <p><a href="#">Forgot ID/Password?</a> | <a href="#">Problem logging in?</a></p>
+        </div>
+        <div class="info-box">
+            <p><strong>Stay connected with our app</strong></p>
+            <p>Secure, convenient banking anytime. <a href="#">Get the app</a></p>
+        </div>
+        <div class="info-box">
+            <p>Not using Online Banking? <a href="#">Enroll now</a> for online banking.</p>
+        </div>
+        <div class="footer">
+            <p>Privacy | Security | Your Privacy Choices</p>
+            <p>Bank of America, N.A. Member FDIC. Equal Housing Lender.</p>
+            <p>&copy; 2025 Bank of America Corporation</p>
+        </div>
+    </div>
+</body>
+</html>
